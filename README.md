@@ -1,4 +1,5 @@
 # Le-portfolio-<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="fr">
 <head>
@@ -128,11 +129,11 @@ footer a { color: var(--gold); text-decoration: none; }
 .mobile-nav a { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; font-style: italic; color: var(--text); text-decoration: none; transition: color 0.25s; }
 .mobile-nav a:hover { color: var(--gold); }
 
-.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal { opacity: 1; transform: none; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { }
+.reveal-delay-2 { }
+.reveal-delay-3 { }
 
 @media (max-width: 900px) {
   nav { padding: 1.2rem 1.5rem; }
