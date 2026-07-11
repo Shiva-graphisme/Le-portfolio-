@@ -242,4 +242,7 @@
       grid.appendChild(card);
       ['newTitle','newImage','newCategory','newYear','newDesc'].forEach(function(id){document.getElementById(id).value='';});
     }
-    function deleteCard(btn){if(confirm('Supprimer ce projet ?'))btn.closest('.portfolio-card')
+        function deleteCard(btn){if(confirm('Supprimer ce projet ?'))btn.closest('.portfolio-card').remove();}
+  </script>
+</body>
+</html>
