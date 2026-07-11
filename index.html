@@ -213,20 +213,26 @@
     if(isAdmin)document.body.classList.add('admin-active');
     function openLogin(){document.getElementById('loginModal').classList.add('open');}
     function closeLogin(){document.getElementById('loginModal').classList.remove('open');document.getElementById('passInput').value='';}
-    function handleLogin(){
-      var pass=document.getElementById('passInput').value;
-      if(pass==='Orijeanori235'){
-        isAdmin=true;
-        try{localStorage.setItem('adminAccess','true');}catch(e){}
-        document.body.classList.add('admin-active');
-        closeLogin();
-        document.getElementById('adminBtn').textContent='Admin OK';
-      }else{
-        var inp=document.getElementById('passInput');
-        inp.style.borderColor='#f87171';
-        setTimeout(function(){inp.style.borderColor='';},1200);
-      }
-    }
+   async function handleLogin(){
+  var pass=document.getElementById('passInput').value;
+  var hash='7b0028d1f8037ad3b4243cc364523b3c1cd592c58840c03d362756d41f202255';
+  var enc=new TextEncoder().encode(pass);
+  var buf=await crypto.subtle.digest('SHA-256',enc);
+  var arr=Array.from(new Uint8Array(buf));
+  var hex=arr.map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+  if(hex===hash){
+    isAdmin=true;
+    try{localStorage.setItem('adminAccess','true');}catch(e){}
+    document.body.classList.add('admin-active');
+    closeLogin();
+    document.getElementById('adminBtn').textContent='Admin OK';
+  }else{
+    var inp=document.getElementById('passInput');
+    inp.style.borderColor='#f87171';
+    setTimeout(function(){inp.style.borderColor='';},1200);
+  }
+}
+
     document.getElementById('passInput').addEventListener('keydown',function(e){if(e.key==='Enter')handleLogin();});
     function addProject(){
       var title=document.getElementById('newTitle').value.trim();
