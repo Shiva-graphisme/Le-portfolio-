@@ -106,7 +106,8 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:1rem">
-      <button class="nav-admin-btn" id="adminBtn" onclick="openLogin()">Admin</button>
+     <button class="nav-admin-btn" id="adminBtn" onclick="try{openLogin()}catch(e){alert('Erreur: '+e.message)}">Admin</button>
+
       <button class="mobile-toggle" onclick="toggleMobile()">&#9776;</button>
     </div>
   </nav>
